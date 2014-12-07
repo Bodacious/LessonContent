@@ -30,75 +30,88 @@
 
 class Shop
 
-attr_reader :items
+  attr_reader :items
 
-	def initialize
-		@items = []
-	end
+  def initialize
+    @items = []
+  end
 
-def number_of_items
-	items.count
-end
+  def number_of_items
+    items.count
+  end
+  
 end
 
 class Customer
-	def initialize(name,email)
-		@name = name
-		@email = email
-	end
 
-	attr_reader :email
-	attr_reader :name
+  
+  attr_reader :email
+  attr_reader :name
+
+
+  def initialize(name,email)
+    @name = name
+    @email = email
+  end
+
 end
 
 class CreditCard
-	def initialize(values)
-		@number = values[:number]
-		@type = values[:type]
-		@security_code = values[:security_code]
-		@name = values[:name]
-		@expiry = values[:expiry]
-	end
 
 
-	attr_reader :number
-	attr_reader :type
-	attr_reader :security_code
-	attr_reader :name
-	attr_reader :expiry
+  attr_reader :number
+  attr_reader :type
+  attr_reader :security_code
+  attr_reader :name
+  attr_reader :expiry
+
+  
+  def initialize(values)
+    @number        = values[:number]
+    @type          = values[:type]
+    @security_code = values[:security_code]
+    @name          = values[:name]
+    @expiry        = values[:expiry]
+  end
 
 end		
 	
 class Cart
-	def initialize
-		@items = []
-		
-	end
-	attr_reader :items
+  
+  
+  attr_reader :items
+  
+  
+  def initialize
+    @items = []	
+  end
+    
 end
 
 class Order
-	def initialize(cart,customer,delivery_date=Date.today+5)
-		@items= cart.items
-		@customer = customer
-		@delivery_date = delivery_date
-    
-     end
-	
-	attr_reader :items
-	attr_reader :customer
-	attr_reader :delivery_date
+  
+  attr_reader :items
+  attr_reader :customer
+  attr_reader :delivery_date
 
+  
+  def initialize(cart,customer,delivery_date=Date.today+5)
+    @items         = cart.items
+    @customer      = customer
+    @delivery_date = delivery_date    
+  end
+	
 end
 
 class Item
-	def initialize(price,name)
-		@price = price
-		@name = name
-		
-	end
+  
+  attr_reader :price
+  attr_reader :name
 
-	attr_reader :price
-	attr_reader :name
-	
+  
+  def initialize(price,name)
+    @price = price
+    @name  = name		
+  end
+
 end
